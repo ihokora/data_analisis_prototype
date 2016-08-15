@@ -1,13 +1,11 @@
 # config valid only for current version of Capistrano
 lock '3.6.0'
 
-set :application, 'data_analisis_test'
+set :application, 'data-analisis-test'
 set :deploy_user, 'sikigo'   # name of user who is set on server
 set :repo_url, 'git@github.com:sikigo/data_analisis_prototype.git'
 
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
@@ -18,7 +16,7 @@ set :rbenv_ruby, '2.3.1'
 # set :deploy_to, '/var/www/my_app_name'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
