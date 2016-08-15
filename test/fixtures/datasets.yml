@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  value: MyString
+  data_x: MyString
+  data_y: MyString
 
 two:
-  value: MyString
+  data_x: MyString
+  data_y: MyString

@@ -12,7 +12,7 @@ class DatasetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create dataset" do
     assert_difference('Dataset.count') do
-      post datasets_url, params: { dataset: { value: @dataset.value } }, as: :json
+      post datasets_url, params: { dataset: { data_x: @dataset.data_x, data_y: @dataset.data_y } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class DatasetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update dataset" do
-    patch dataset_url(@dataset), params: { dataset: { value: @dataset.value } }, as: :json
+    patch dataset_url(@dataset), params: { dataset: { data_x: @dataset.data_x, data_y: @dataset.data_y } }, as: :json
     assert_response 200
   end
 

@@ -16,9 +16,11 @@ class DatasetsController < ApplicationController
   # POST /datasets
   def create
     @dataset = Dataset.new(dataset_params)
-
+    data_x = @dataset[:data_x].split(",").map(&:to_i)
+    stats = DescriptiveStatistics::Stats.new(data_x)
+    stats = stats.descriptive_statistics
     if @dataset.save
-      render json: @dataset, status: :created, location: @dataset
+      render json: stats, status: :created #location: @dataset
     else
       render json: @dataset.errors, status: :unprocessable_entity
     end
@@ -38,6 +40,12 @@ class DatasetsController < ApplicationController
     @dataset.destroy
   end
 
+  # GET statistics info
+  def stats
+
+    render json: data_x
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dataset
@@ -46,6 +54,8 @@ class DatasetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dataset_params
-      params.require(:dataset).permit(:value)
+      params.permit(:data_x, :data_y)
     end
+
+
 end
