@@ -8,8 +8,10 @@ gem 'sqlite3'
 
 gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 gem 'devise_token_auth'
+
+gem 'rack-cors', :require => 'rack/cors'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
